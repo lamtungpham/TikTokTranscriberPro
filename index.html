@@ -14,6 +14,8 @@
             font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
+            margin: 0;
+            padding: 0;
         }
         .glass {
             background: rgba(30, 41, 59, 0.7);
@@ -29,19 +31,45 @@
             100% { transform: translateY(0px); }
         }
         .float { animation: float 3s ease-in-out infinite; }
+        
+        /* Custom scrollbar cho kết quả dài */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
-  }
-}
-</script>
+    <!-- Fix lỗi process is not defined trên Vercel/Browser -->
+    <script>
+        window.process = {
+            env: {
+                API_KEY: "" // Sẽ được hệ thống tự động inject hoặc lấy từ Vercel Env
+            }
+        };
+    </script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react-dom": "https://esm.sh/react-dom@^19.2.3",
+        "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+      }
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>
+    <!-- Thẻ script quan trọng để chạy index.tsx -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
