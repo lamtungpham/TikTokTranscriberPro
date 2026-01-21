@@ -1,0 +1,8 @@
+{
+  "name": "TikTok Transcriber Pro",
+  "description": "Ứng dụng chuyển đổi video TikTok thành văn bản với độ chính xác cao cho tiếng Việt, sử dụng công nghệ Gemini 3.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
